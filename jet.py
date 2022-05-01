@@ -48,9 +48,13 @@ def JET():
 
     Contact = pd.concat([CountryDF, bblDF, MTDF, gallonDF, literDF],axis = 1)
     Contact.columns = [columns]
+<<<<<<< HEAD
     Contact.to_csv(f"./{datetime.today().date().strftime('%Y-%m-%d')}_JET.csv", index=False)
 <<<<<<< HEAD
 =======
 =======
 >>>>>>> Stashed changes
+>>>>>>> main
+=======
+    Contact.to_csv(f"./{datetime.today().date().strftime('%Y-%m-%d')}_JET.csv", index=False)
 >>>>>>> main

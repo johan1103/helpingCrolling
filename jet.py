@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import requests
 import pandas as pd
 from bs4 import BeautifulSoup as bs
@@ -48,3 +49,8 @@ def JET():
     Contact = pd.concat([CountryDF, bblDF, MTDF, gallonDF, literDF],axis = 1)
     Contact.columns = [columns]
     Contact.to_csv(f"./{datetime.today().date().strftime('%Y-%m-%d')}_JET.csv", index=False)
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> Stashed changes
+>>>>>>> main

@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import requests
 import pandas as pd
 from bs4 import BeautifulSoup as bs
@@ -14,7 +15,7 @@ def JET():
 
     ua = UserAgent()
     url = 'https://jet-a1-fuel.com/'
-    headers = {'User-Agent' : ua.random,}
+    headers = {'User-Agent' : ua.random}
 
     req  = requests.get(url, headers=headers)
     soup = bs(req.text, 'html.parser')
@@ -25,10 +26,11 @@ def JET():
     for i in range(0,5):
         tre = table.find_all('th')[i].text
         columns.append(tre)
-
+    print("len tde ")
+    print(len(tde))
     for j in range(0,len(tde)) :
         if j%5 == 0 :
-            CountryList.append(table.find_all('td')[j].text[2:])
+            CountryList.append(table.find_all('a')[int(j/5)].text)
         elif j%5 == 1 :
             bbllist.append(table.find_all('td')[j].text)
         elif j%5 == 2 :
@@ -46,5 +48,6 @@ def JET():
 
     Contact = pd.concat([CountryDF, bblDF, MTDF, gallonDF, literDF],axis = 1)
     Contact.columns = [columns]
-
     Contact.to_csv(f"./{datetime.today().date().strftime('%Y-%m-%d')}_JET.csv", index=False)
+=======
+>>>>>>> Stashed changes

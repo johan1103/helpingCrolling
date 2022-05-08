@@ -4,14 +4,11 @@ import urllib.request
 import pandas as pd
 from bs4 import BeautifulSoup as bs
 
-<<<<<<< HEAD
 mainUrl = "https://xsi.xeneta.com/"
 mainReq = requests.get(mainUrl)
 mainSoup = bs(mainReq.text,'html.parser')
 mainTable = mainSoup.find_all('iframe')
 
-=======
->>>>>>> 4b579b4baca846e9b430ef8d365513f2f6ec7605
 
 url = 'https://xsi-short.xeneta.com/xsic/chart/asia-europe'
 

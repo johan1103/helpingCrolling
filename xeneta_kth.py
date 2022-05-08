@@ -8,8 +8,7 @@ mainUrl = "https://xsi.xeneta.com/"
 mainReq = requests.get(mainUrl)
 mainSoup = bs(mainReq.text,'html.parser')
 mainTable = mainSoup.find_all('iframe')
-for i in range(1,len(mainTable)-1):
-    print(mainTable[i]['src'])
+
 
 url = 'https://xsi-short.xeneta.com/xsic/chart/pacific'
 

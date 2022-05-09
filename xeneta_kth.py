@@ -4,14 +4,6 @@ import urllib.request
 import pandas as pd
 from bs4 import BeautifulSoup as bs
 
-<<<<<<< HEAD
-mainUrl = "https://xsi.xeneta.com/"
-mainReq = requests.get(mainUrl)
-mainSoup = bs(mainReq.text,'html.parser')
-mainTable = mainSoup.find_all('iframe')
-
-=======
->>>>>>> 4b579b4baca846e9b430ef8d365513f2f6ec7605
 
 url = 'https://xsi-short.xeneta.com/xsic/chart/asia-europe'
 
@@ -20,10 +12,10 @@ req = requests.get(url)
 soup = bs(req.text, 'html.parser')
 table = soup.find('canvas', {'class' : 'chart-visualization'})
 option_value = soup.find('div', {'class' : 'chart-controls'})
-for i in eval(table.attrs['data-json'])['lanes'][0]['rates'][0].keys():
-    print(i)
-    print(eval(table.attrs['data-json'])['lanes'][0]['rates'][0][i])
-    print(type(i))
+# for i in eval(table.attrs['data-json'])['lanes'][0]['rates'][0].keys():
+#     print(i)
+#     print(eval(table.attrs['data-json'])['lanes'][0]['rates'][0][i])
+#     print(type(i))
 lanes = eval(table.attrs['data-json'])['lanes']
 corri = eval(table.attrs['data-json'])['corridor']
 opt = option_value.select('option')

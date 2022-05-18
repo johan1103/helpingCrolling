@@ -1,9 +1,10 @@
 from asyncio.windows_events import NULL
 import requests
-from selenium import webdriver
 from fake_useragent import UserAgent
 from bs4 import BeautifulSoup
 import pandas as pd
+import json
+from selenium import webdriver
 
     #for문을 Simple이란 함수로 정의 하여 모든 data를 dataframe으로 가공
 def Simple(Country):
@@ -26,12 +27,12 @@ def findDate(Country):
 
         return df
 
+
 def wci() :
-    browser = ('https://infogram.com/world-container-index-1h17493095xl4zj')
-    ua = UserAgent()
-    header = {'User-Agent' : ua.random}
-    req = requests.get(browser,headers=header)
-    soup = BeautifulSoup(req,'html.parser')
+    options = webdriver.ChromeOptions()
+    options.add_experimental_option("excludeSwitches",["enable-logging"])
+    browser= webdriver.Chrome(options=options)
+    browser.get('https://infogram.com/world-container-index-1h17493095xl4zj')
 
     #data 0 ~ 7까지를 전부 all_composit이란 변수에 대입
     all_composite = browser.execute_script('return window.infographicData.elements[2].data;')
@@ -50,3 +51,4 @@ def wci() :
     #dataframe columns 재설정
     Contact.columns = [Name]
     Contact.to_csv('./' +'wci.csv', index=False)
+
